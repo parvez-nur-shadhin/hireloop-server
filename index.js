@@ -55,6 +55,13 @@ async function run() {
 
     })
 
+    // Company Related Works
+    app.post('/api/companies', async(req, res) => {
+        const company = req.body;
+        const result = await companyCollection.insertOne(company);
+        res.send(result);
+    })
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
